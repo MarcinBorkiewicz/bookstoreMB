@@ -278,18 +278,18 @@ class BookFunctionsTest {
         Assert.assertEquals(mapOfBooksAndIsbn, bookFunctions.getMapOfBooksAndIsbn2(bookList));
     }
 
-//    @Test
-//    void sortBooksFromNewestFor() {
-//        BookFunctions bookFunctions = new BookFunctions();
-//        List<Book> bookList2 = new ArrayList<>();
-//        bookList2.add(book6);
-//        bookList2.add(book5);
-//        bookList2.add(book4);
-//        bookList2.add(book2);
-//        bookList2.add(book1);
-//        bookList2.add(book3);
-//        Assert.assertEquals(bookList2, bookFunctions.sortBooksFromNewestFor(testListOfBooks));
-//    }
+    @Test
+    void sortBooksFromNewestFor() {
+        BookFunctions bookFunctions = new BookFunctions();
+        List<Book> bookList2 = new ArrayList<>();
+        bookList2.add(book6);
+        bookList2.add(book5);
+        bookList2.add(book4);
+        bookList2.add(book2);
+        bookList2.add(book1);
+        bookList2.add(book3);
+        Assert.assertEquals(bookList2, bookFunctions.sortBooksFromNewestFor(testListOfBooks));
+    }
 //
 //    @Test
 //    void sortBooksFromNewestStream() {
