@@ -12,8 +12,8 @@ public class DataPresenting {
         dataPresenting.showBooks(listOfBooks);
     }
 
-    public void showCategories(List<Category> listOfCategories) {
-        for (Category c : listOfCategories) {
+    public void showCategories(List<Category> categoryList) {
+        for (Category c : categoryList) {
             System.out.println(c.toString());
         }
     }
@@ -24,8 +24,8 @@ public class DataPresenting {
         }
     }
 
-    public void showBooks(List<Book> listOfBooks) {
-        for (Book b : listOfBooks) {
+    public void showBooks(List<Book> bookList) {
+        for (Book b : bookList) {
             System.out.println(b.toString());
         }
     }

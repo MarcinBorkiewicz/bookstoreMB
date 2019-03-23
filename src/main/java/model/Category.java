@@ -15,6 +15,18 @@ public class Category {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return
@@ -22,4 +34,5 @@ public class Category {
                 "\n*\t\tname:\t\t" + name +
                 "\n*\t\tpriority\t" + priority;
     }
+
 }

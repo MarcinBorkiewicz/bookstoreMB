@@ -11,6 +11,11 @@ public class Author {
         this.age = age;
     }
 
+    public Author(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public int getId() {
         return id;
     }
@@ -21,5 +26,13 @@ public class Author {
                 "\n*\t\tid:\t\t\t" + id +
                 "\n*\t\tname:\t\t" + name +
                 "\n*\t\tage:\t\t" + age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 }

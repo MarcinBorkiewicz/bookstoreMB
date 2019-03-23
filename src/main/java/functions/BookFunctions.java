@@ -1,6 +1,7 @@
 package functions;
 
 
+import com.google.common.collect.Lists;
 import model.Book;
 
 import java.util.*;
@@ -135,11 +136,12 @@ public class BookFunctions {
         int a = 0;
         for (Book book1 : bookList) {
             average = average + book1.getYear();
+            a++;
         }
         return average / a;
     }
 
-    public double averageReleasedBooks(List<Book> bookList) {
+    public double averageReleasedYear2(List<Book> bookList) {
         return bookList.stream()
                 .mapToDouble(x -> x.getYear())
                 .average().getAsDouble();
@@ -222,15 +224,46 @@ public class BookFunctions {
                 .collect(Collectors.toMap(x -> x.getIsbnNumber(), x -> x));
     }
 
-//    public List<Book> sortBooksFromOldest1(List<Book> bookList) {
-//        Collections.sort();
-//    }
+    public List<Book> sortBooksFromNewest1(List<Book> bookList) {
+        bookList.sort(((o1, o2) -> Integer.compare(o2.getYear(), o1.getYear())));
+        return bookList;
+    }
 
-//    public List<Book> sortBooksFromOldest2 (List<Book> bookList) {
+    public List<Book> sortBooksFromNewest2(List<Book> bookList) {
+        return bookList.stream()
+                .sorted((o1, o2) -> Integer.compare(o2.getYear(), o1.getYear()))
+                .collect(Collectors.toList());
+    }
+
+    public List<Book> sortBooksFromOldest1(List<Book> bookList) {
+        bookList.sort(((o1, o2) -> Integer.compare(o1.getYear(), o2.getYear())));
+        return bookList;
+    }
+
+    public List<Book> sortBooksFromOldest2(List<Book> bookList) {
+        return bookList.stream()
+                .sorted(Comparator.comparing(x -> x.getYear()))
+                .sorted((o1, o2) -> Integer.compare(o1.getYear(), o2.getYear()))
+                .collect(Collectors.toList());
+    }
+
+    public List<List<Book>> getListOfListsOfBooks1(List<Book> bookList) {
+        return Lists.partition(bookList, 2);
+
+    }
+
+//    public List<List<Book>> getListOfListsOfBooks2(List<Book> bookList) {
 //
+//        List<List<Book>> mainListofBooks = new ArrayList<>();
+//        List<List<Book>> bookList1 = new ArrayList<>();
+//
+//        int j = 0;
+//        for (int i = 0; i < bookList.size() ; i++) {
+//        bookList1.add(bookList.get(i));
+//        j++;
+//
+//        }
 //    }
-
-
 
 }
 

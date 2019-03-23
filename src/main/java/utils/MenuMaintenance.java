@@ -22,7 +22,9 @@ public class MenuMaintenance {
         System.out.println("*\t\t\t\t\t\t\t\t\t\t\t\t\t\t*");
         System.out.println("*\tPick the action from the list:\t\t\t\t\t\t*");
         System.out.println("*\t\t1. Show books stored in the external file\t\t*");
-        System.out.println("*\t\t2. Exit\t\t\t\t\t\t\t\t\t\t\t*");
+        System.out.println("*\t\t2. Add new author\t\t\t\t\t\t\t\t*");
+        System.out.println("*\t\t3. Add new category\t\t\t\t\t\t\t\t*");
+        System.out.println("*\t\t4. Exit\t\t\t\t\t\t\t\t\t\t\t*");
         System.out.println("*\t\t\t\t\t\t\t\t\t\t\t\t\t\t*");
         System.out.println("*********************************************************\n");
     }
@@ -50,6 +52,8 @@ public class MenuMaintenance {
             default:
                 System.out.println("This option is unavailable");
                 break;
+
+
         }
     }
 }

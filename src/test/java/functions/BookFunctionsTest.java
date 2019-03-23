@@ -32,9 +32,9 @@ class BookFunctionsTest {
                 1955, "T", null, null);
         book4 = new Book(4, "Kurnik", 5888,
                 1936, "T", null, null);
-        book5 = new Book(5, "Bagno", 3299,
-                2000, "T", null, null);
-        book6 = new Book(6, "Ranek", 1231,
+        book5 = new Book(5, "Cos", 3299,
+                2011, "T", null, null);
+        book6 = new Book(6, "Cos znowu tam", 1231,
                 2015, "T", null, null);
 
         bookList.add(book1);
@@ -92,24 +92,24 @@ class BookFunctionsTest {
         Assert.assertEquals(bookList2, bookFunctions.getTwoLastBooksFor(bookList2));
     }
 
-    //    @Test
-//    void getTwoLastBooksStream1() {
-//        BookFunctions bookFunctions = new BookFunctions();    //TODO Poprawic
-//        List<Book> bookList2 = new ArrayList<>();
-//        bookList2.add(book5);
-//        bookList2.add(book6);
-//        Assert.assertEquals(bookList2, bookFunctions.getTwoLastBooksStream(bookList2));
-//    }
+        @Test
+    void getTwoLastBooksStream1() {
+        BookFunctions bookFunctions = new BookFunctions();
+        List<Book> bookList2 = new ArrayList<>();
+        bookList2.add(book5);
+        bookList2.add(book6);
+        Assert.assertEquals(bookList2, bookFunctions.getTwoLastBooksStream(bookList));
+    }
     @Test
     void earliestReleasedBookFor() {
         BookFunctions bookFunctions = new BookFunctions();
-        Assert.assertEquals(book3, bookFunctions.earliestReleasedBook1(bookList));
+        Assert.assertEquals(book4, bookFunctions.earliestReleasedBook1(bookList));
     }
 
     @Test
     void earliestReleasedBookStream() {
         BookFunctions bookFunctions = new BookFunctions();
-        Assert.assertEquals(book3, bookFunctions.earliestReleasedBook2(bookList));
+        Assert.assertEquals(book4, bookFunctions.earliestReleasedBook2(bookList));
     }
 
     @Test
@@ -128,25 +128,25 @@ class BookFunctionsTest {
     @Test
     void sumOfAllYearsFor() {
         BookFunctions bookFunctions = new BookFunctions();
-        Assert.assertEquals(11881, bookFunctions.sumOfAllYears1(bookList));
+        Assert.assertEquals(11892, bookFunctions.sumOfAllYears1(bookList));
     }
 
     @Test
     void sumOfAllYearsStream() {
         BookFunctions bookFunctions = new BookFunctions();
-        Assert.assertEquals(11881, bookFunctions.sumOfAllYears2(bookList));
+        Assert.assertEquals(11892, bookFunctions.sumOfAllYears2(bookList));
     }
 
     @Test
     void numberOfBooksReleasedPrior2007For() {
         BookFunctions bookFunctions = new BookFunctions();
-        Assert.assertEquals(1, bookFunctions.numberOfBooksReleasedBefore20071(bookList));
+        Assert.assertEquals(2, bookFunctions.numberOfBooksReleasedBefore20071(bookList));
     }
 
     @Test
     void numberOfBooksReleasedPrior2007Stream() {
         BookFunctions bookFunctions = new BookFunctions();
-        Assert.assertEquals(1, bookFunctions.numberOfBooksReleasedBefore20072(bookList));
+        Assert.assertEquals(2, bookFunctions.numberOfBooksReleasedBefore20072(bookList));
     }
 
     @Test
@@ -164,15 +164,15 @@ class BookFunctionsTest {
     @Test
     void averageReleaseYearFor() {
         BookFunctions bookFunctions = new BookFunctions();
-        Assert.assertEquals(2011, bookFunctions.averageReleasedYear1(bookList), 0.01);
+        Assert.assertEquals(1982, bookFunctions.averageReleasedYear1(bookList), 0.01);
     }
-//
-//    @Test
-//    void averageReleaseYearStream() {
-//        BookFunctions bookFunctions = new BookFunctions();
-//        Assert.assertEquals(2011, bookFunctions.averageReleaseYearStream(testListOfBooks), 0.01);
-//    }
-//
+
+    @Test
+    void averageReleaseYearStream() {
+        BookFunctions bookFunctions = new BookFunctions();
+        Assert.assertEquals(1982, bookFunctions.averageReleasedYear2(bookList), 0.01);
+    }
+
     @Test
     void checkIfAnyBookIsReleasedBefore2003For() {
         BookFunctions bookFunctions = new BookFunctions();
@@ -189,8 +189,8 @@ class BookFunctionsTest {
     void getBooksStartingWithCAndReleasedAfter2007for() {
         BookFunctions bookFunctions = new BookFunctions();
         List<Book> booklist2 = new ArrayList<>();
-        booklist2.add(book1);
-        booklist2.add(book4);
+        booklist2.add(book5);
+        booklist2.add(book6);
         Assert.assertEquals(booklist2, bookFunctions.getBooksStartedWithCAndReleasedAfter20071(bookList));
 
     }
@@ -199,8 +199,8 @@ class BookFunctionsTest {
     void getBooksStartingWithCAndReleasedAfter2007stream() {
         BookFunctions bookFunctions = new BookFunctions();
         List<Book> bookList2 = new ArrayList<>();
-        bookList2.add(book1);
-        bookList2.add(book4);
+        bookList2.add(book5);
+        bookList2.add(book6);
         Assert.assertEquals(bookList2, bookFunctions.getBooksStartedWithCAndReleasedAfter20072(bookList));
     }
 
@@ -235,9 +235,7 @@ class BookFunctionsTest {
         BookFunctions bookFunctions = new BookFunctions();
         List<String> bookList2 = new ArrayList<>();
         bookList2.add(book1.getTitle());
-        bookList2.add(book2.getTitle());
-        bookList2.add(book3.getTitle());
-        bookList2.add(book6.getTitle());
+        bookList2.add(book4.getTitle());
         Assert.assertEquals(bookList2, bookFunctions.getBooksYearDivBy21(bookList));
     }
 
@@ -246,9 +244,7 @@ class BookFunctionsTest {
         BookFunctions bookFunctions = new BookFunctions();
         List<String> bookList2 = new ArrayList<>();
         bookList2.add(book1.getTitle());
-        bookList2.add(book2.getTitle());
-        bookList2.add(book3.getTitle());
-        bookList2.add(book6.getTitle());
+        bookList2.add(book4.getTitle());
         Assert.assertEquals(bookList2, bookFunctions.getBooksYearDivBy22(bookList));
     }
 
@@ -256,12 +252,12 @@ class BookFunctionsTest {
     void getMapOfIsbnAndBooksFor() {
         BookFunctions bookFunctions = new BookFunctions();
         Map<Integer, Book> mapOfBooksAndIsbn = new TreeMap<>();
-        mapOfBooksAndIsbn.put(1231, book1);
-        mapOfBooksAndIsbn.put(1232, book2);
-        mapOfBooksAndIsbn.put(1233, book3);
-        mapOfBooksAndIsbn.put(1234, book4);
-        mapOfBooksAndIsbn.put(1235, book5);
-        mapOfBooksAndIsbn.put(1236, book6);
+        mapOfBooksAndIsbn.put(1234, book1);
+        mapOfBooksAndIsbn.put(4768, book2);
+        mapOfBooksAndIsbn.put(5563, book3);
+        mapOfBooksAndIsbn.put(5888, book4);
+        mapOfBooksAndIsbn.put(3299, book5);
+        mapOfBooksAndIsbn.put(1231, book6);
         Assert.assertEquals(mapOfBooksAndIsbn, bookFunctions.getMapOfBooksAndIsbn1(bookList));
     }
 
@@ -269,12 +265,12 @@ class BookFunctionsTest {
     void getMapOfIsbnAndBooksStream() {
         BookFunctions bookFunctions = new BookFunctions();
         Map<Integer, Book> mapOfBooksAndIsbn = new TreeMap<>();
-        mapOfBooksAndIsbn.put(1231, book1);
-        mapOfBooksAndIsbn.put(1232, book2);
-        mapOfBooksAndIsbn.put(1233, book3);
-        mapOfBooksAndIsbn.put(1234, book4);
-        mapOfBooksAndIsbn.put(1235, book5);
-        mapOfBooksAndIsbn.put(1236, book6);
+        mapOfBooksAndIsbn.put(1234, book1);
+        mapOfBooksAndIsbn.put(4768, book2);
+        mapOfBooksAndIsbn.put(5563, book3);
+        mapOfBooksAndIsbn.put(5888, book4);
+        mapOfBooksAndIsbn.put(3299, book5);
+        mapOfBooksAndIsbn.put(1231, book6);
         Assert.assertEquals(mapOfBooksAndIsbn, bookFunctions.getMapOfBooksAndIsbn2(bookList));
     }
 
@@ -284,52 +280,52 @@ class BookFunctionsTest {
         List<Book> bookList2 = new ArrayList<>();
         bookList2.add(book6);
         bookList2.add(book5);
-        bookList2.add(book4);
-        bookList2.add(book2);
         bookList2.add(book1);
+        bookList2.add(book2);
         bookList2.add(book3);
-        Assert.assertEquals(bookList2, bookFunctions.sortBooksFromNewestFor(testListOfBooks));
+        bookList2.add(book4);
+        Assert.assertEquals(bookList2, bookFunctions.sortBooksFromNewest1(bookList));
+    }
+
+    @Test
+    void sortBooksFromNewestStream() {
+        BookFunctions bookFunctions = new BookFunctions();
+        List<Book> bookList2 = new ArrayList<>();
+        bookList2.add(book6);
+        bookList2.add(book5);
+        bookList2.add(book1);
+        bookList2.add(book2);
+        bookList2.add(book3);
+        bookList2.add(book4);
+        Assert.assertEquals(bookList2, bookFunctions.sortBooksFromNewest2(bookList));
     }
 //
-//    @Test
-//    void sortBooksFromNewestStream() {
-//        BookFunctions bookFunctions = new BookFunctions();
-//        List<Book> tempListOfBooks = new ArrayList<>();
-//        tempListOfBooks.add(book6);
-//        tempListOfBooks.add(book5);
-//        tempListOfBooks.add(book4);
-//        tempListOfBooks.add(book2);
-//        tempListOfBooks.add(book1);
-//        tempListOfBooks.add(book3);
-//        Assert.assertEquals(tempListOfBooks, bookFunctions.sortBooksFromNewestStream(testListOfBooks));
-//    }
-//
-//    @Test
-//    void sortBooksFromOldestFor() {
-//        BookFunctions bookFunctions = new BookFunctions();
-//        List<Book> tempListOfBooks = new ArrayList<>();
-//        tempListOfBooks.add(book3);
-//        tempListOfBooks.add(book1);
-//        tempListOfBooks.add(book2);
-//        tempListOfBooks.add(book4);
-//        tempListOfBooks.add(book5);
-//        tempListOfBooks.add(book6);
-//        Assert.assertEquals(tempListOfBooks, bookFunctions.sortBooksFromOldestFor(testListOfBooks));
-//    }
-//
-//    @Test
-//    void sortBooksFromOldestStream() {
-//        BookFunctions bookFunctions = new BookFunctions();
-//        List<Book> tempListOfBooks = new ArrayList<>();
-//        tempListOfBooks.add(book3);
-//        tempListOfBooks.add(book1);
-//        tempListOfBooks.add(book2);
-//        tempListOfBooks.add(book4);
-//        tempListOfBooks.add(book5);
-//        tempListOfBooks.add(book6);
-//        Assert.assertEquals(tempListOfBooks, bookFunctions.sortBooksFromOldestStream(testListOfBooks));
-//    }
-//
+    @Test
+    void sortBooksFromOldestFor() {
+        BookFunctions bookFunctions = new BookFunctions();
+        List<Book> bookList2 = new ArrayList<>();
+        bookList2.add(book4);
+        bookList2.add(book3);
+        bookList2.add(book2);
+        bookList2.add(book1);
+        bookList2.add(book5);
+        bookList2.add(book6);
+        Assert.assertEquals(bookList2, bookFunctions.sortBooksFromOldest1(bookList));
+    }
+
+    @Test
+    void sortBooksFromOldestStream() {
+        BookFunctions bookFunctions = new BookFunctions();
+        List<Book> bookList2 = new ArrayList<>();
+        bookList2.add(book4);
+        bookList2.add(book3);
+        bookList2.add(book2);
+        bookList2.add(book1);
+        bookList2.add(book5);
+        bookList2.add(book6);
+        Assert.assertEquals(bookList2, bookFunctions.sortBooksFromOldest2(bookList));
+    }
+
 //    @Test
 //    void getListOfListsOfBooksFor() {
 //        BookFunctions bookFunctions = new BookFunctions();
@@ -350,25 +346,8 @@ class BookFunctionsTest {
 //        Assert.assertEquals(mainTempListOfBooks, bookFunctions.getListOfListsOfBooksFor(testListOfBooks));
 //
 //    }
-//
-//    @Test
-//    void getListOfListsOfBooksStream() {
-//        BookFunctions bookFunctions = new BookFunctions();
-//        List<List<Book>> mainTempListOfBooks = new ArrayList<>();
-//        List<Book> firstTempListOfBooks = new ArrayList<>();
-//        List<Book> secondTempListOfBooks = new ArrayList<>();
-//        List<Book> thirdTempListOfBooks = new ArrayList<>();
-//        firstTempListOfBooks.add(book1);
-//        firstTempListOfBooks.add(book2);
-//        secondTempListOfBooks.add(book3);
-//        secondTempListOfBooks.add(book4);
-//        thirdTempListOfBooks.add(book5);
-//        thirdTempListOfBooks.add(book6);
-//        mainTempListOfBooks.add(firstTempListOfBooks);
-//        mainTempListOfBooks.add(secondTempListOfBooks);
-//        mainTempListOfBooks.add(thirdTempListOfBooks);
-//        Assert.assertEquals(mainTempListOfBooks, bookFunctions.getListOfListsOfBooksStream(testListOfBooks));
-//    }
+
+
     }
 
 
